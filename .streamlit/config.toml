@@ -1,0 +1,19 @@
+[client]
+showErrorDetails = true
+showSidebarNavigation = false
+
+[server]
+runOnSave = true
+address = "localhost"
+port = 8502
+
+[browser]
+gatherUsageStats = false
+serverAddress = "localhost"
+
+[theme]
+primaryColor="#03DAC5"
+backgroundColor="#121212"
+secondaryBackgroundColor="#1e1e1e"
+textColor="#e0e0e0"
+font="monospace"
