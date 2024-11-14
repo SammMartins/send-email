@@ -1,0 +1,4 @@
+.env
+old_*
+venv/
+*.log

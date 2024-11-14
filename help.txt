@@ -1,2 +1,0 @@
-Ambiente virtual do projeto:
-$ source send_email_venv/bin/activate

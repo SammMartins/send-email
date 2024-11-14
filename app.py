@@ -1,10 +1,19 @@
-from send_email import send_email 
+import streamlit as st
+from email_service.email_client import EmailClient
 
-# Exemplo de envio
-send_email("josehenrique@tivic.com.br", "E-mail teste enviado pelo Python", "Zé, esse e-mail foi enviado de forma automatizada via script em Python.")
-send_email("isaac@tivic.com.br", "E-mail teste enviado pelo Python", "Isaac, esse e-mail foi enviado de forma automatizada via script em Python.")
-send_email("darllan@tivic.com.br", "E-mail teste enviado pelo Python", "Darllan, esse e-mail foi enviado de forma automatizada via script em Python.")
-send_email("rodrigo@tivic.com.br", "E-mail teste enviado pelo Python", "Rodrigo, esse e-mail foi enviado de forma automatizada via script em Python.")
+def main():
+    st.title('Envio de E-mails com Streamlit')
+    
+    recipient = st.text_input('Destinatário do E-mail')
+    subject = st.text_input('Assunto do E-mail')
+    body = st.text_area('Corpo do E-mail')
+    
+    if st.button('Enviar E-mail'):
+        email_client = EmailClient()
+        if email_client.send_email(recipient, subject, body):
+            st.success('E-mail enviado com sucesso!')
+        else:
+            st.error('Erro ao enviar o e-mail.')
 
-# send_email("isaac@tivic.com.br", "E-mail teste enviado pelo Python", "Isaac, esse e-mail foi enviado de forma automatizada via script em Python.")
-# send_email("josehenrique@tivic.com.br", "E-mail teste enviado pelo Python", "Zé, esse e-mail foi enviado de forma automatizada via script em Python.")
+if __name__ == '__main__':
+    main()
