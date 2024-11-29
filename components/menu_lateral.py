@@ -9,7 +9,7 @@ def menu_lateral():
         st.set_page_config(
             page_title='SEND-EMAIL', 
             page_icon=':blue[:material/send:]', 
-            initial_sidebar_state = 'auto',
+            initial_sidebar_state = 'collapsed',
             layout='wide',
         )
 
@@ -21,6 +21,6 @@ def menu_lateral():
 
         # Links para as páginas
         st.subheader("Menu de Navegação")
-        st.page_link("app.py", label="Home", icon="🏠")
+        st.page_link("app.py", icon=":material/send:", label="Enviar E-mail")
 
     return 

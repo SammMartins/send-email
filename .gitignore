@@ -1,5 +1,7 @@
 .env
+*.toml
+.toml
 old_*
 venv/
-*.log
+log.txt
 __pycache__/

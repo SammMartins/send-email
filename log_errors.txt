@@ -1,0 +1,1 @@
+29/11/2024 17:44:38 - Erro ao enviar e-mail: Credenciais não encontradas
