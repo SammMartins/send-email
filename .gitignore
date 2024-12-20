@@ -5,3 +5,4 @@ old_*
 venv/
 log.txt
 __pycache__/
+log_errors.txt
