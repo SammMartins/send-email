@@ -31,7 +31,7 @@ Este repositório contém um projeto para automatização do envio de e-mails pa
     pip install -r requirements.txt
     ```
 
-4. Configure suas credenciais de email no arquivo de configuração (ex: `config.py`).
+4. Configure suas credenciais de email no arquivo de configuração (ex: `.env`).
 
 5. Execute o script de envio de email:
     ```bash
