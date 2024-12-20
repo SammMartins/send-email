@@ -23,7 +23,14 @@ def main():
             help='Exemplo de uso: "Olá, {Nome}. Bom dia!" Nesse caso, "{Nome}" será substituido pelo nome do contato.'
         )
     
-    corpo_email = left_column1.text_area('CORPO DO E-MAIL', max_chars = 5000, placeholder = 'Digite o corpo do e-mail', value='', height=340)
+    corpo_email = left_column1.text_area(
+            'CORPO DO E-MAIL',
+            max_chars = 5000, 
+            placeholder = 'Digite o corpo do e-mail...', 
+            value='', 
+            height=340,
+            help='Utilize ** ** para negrito e __ __ para itálico. Para listas, utilize * ou 1. antes do texto para criar listas não ordenadas ou ordenadas, respectivamente.'
+        )
 
     
     with right_column1:
@@ -35,11 +42,11 @@ def main():
 
         col_esq, separador, col_dir = st.columns([1, 0.1, 1])
 
-        assinatura = col_esq.selectbox("ASSINATURA DO E-MAIL", options=['José', 'Rodrigo', 'Vinícius', 'Sammuel'], index=None, help='Selecione a assinatura que deseja utilizar no e-mail.', placeholder='Selecione a assinatura do e-mail')
+        assinatura = col_esq.selectbox("ASSINATURA DO E-MAIL", options=['Atendimento','José', 'Rodrigo', 'Vinícius', 'Sammuel'], index=None, help='Selecione a assinatura que deseja utilizar no e-mail.', placeholder='Selecione a assinatura do e-mail')
         
         # Multiselect para selecionar as listas de contatos
         lista_selecionada = col_dir.multiselect(
-            "Selecione a(s) lista(s) de contatos",
+            "Selecione o(s) contato(s)",
             options=tabelas_principais,
             default=[],  # Inicialmente vazio
             placeholder="Selecione o(s) contato(s)",

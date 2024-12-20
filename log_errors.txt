@@ -1,1 +1,3 @@
 29/11/2024 17:44:38 - Erro ao enviar e-mail: Credenciais não encontradas
+20/12/2024 18:00:32 - Erro ao enviar e-mail: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials af79cd13be357-7b9ac4cc3ffsm155043585a.109 - gsmtp')
+20/12/2024 18:02:41 - Erro ao enviar e-mail: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 6a1803df08f44-6dd181bb530sm19120936d6.76 - gsmtp')
