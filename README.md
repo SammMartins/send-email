@@ -1,6 +1,6 @@
 # send-email
 
-Este repositório contém um projeto para automatização do envio de e-mails para o setor de Suporte da empresa TIVIC. Através de listas de contatos, a ferramenta envia o personalizado e-mail para cada cliente.
+Este repositório contém um projeto para automatização do envio de e-mails para o setor de Suporte da empresa TIVIC. Através de listas de contatos, a ferramenta envia o e-mail personalizado para cada cliente.
 
 ## Funcionalidades
 
