@@ -1,9 +1,16 @@
 # send-email
 
-Este repositório contém um projeto para automatização do envio de e-mails para o setor de Suporte da empresa TIVIC.
+Este repositório contém um projeto para automatização do envio de e-mails para o setor de Suporte da empresa TIVIC. 
 
-## Novidades
-1. Implementada funcionalidade de templates de e-mails mais ultilizados
+## Funcionalidades
+
+- Envio em massa de e-mails para os clientes da empresa
+- Configuração de credenciais via arquivo `.env` para garantir segurança de acesso
+- Interface amigável utilizando Streamlit no FRONT-END
+
+### Novidades
+
+1. Implementada funcionalidade de templates com e-mails mais ultilizados
 
 ## Tecnologias Utilizadas
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![STREAMLIT](https://img.shields.io/badge/streamlit-%23D42029.svg?style=for-the-badge&logo=streamlit&logoColor=white)
