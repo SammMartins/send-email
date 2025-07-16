@@ -5,13 +5,6 @@ from streamlit_extras.colored_header import colored_header
 def menu_lateral():
     menu_lateral = st.sidebar
     with menu_lateral:
-        # Configurações geral das páginas
-        st.set_page_config(
-            page_title='SEND-EMAIL', 
-            page_icon=':blue[:material/send:]', 
-            initial_sidebar_state = 'collapsed',
-            layout='wide',
-        )
 
         colored_header(
             label=':blue[SEND-EMAIL :material/send:]',
@@ -21,6 +14,6 @@ def menu_lateral():
 
         # Links para as páginas
         st.subheader("Menu de Navegação")
-        st.page_link("app.py", icon=":material/send:", label="Enviar E-mail")
+        st.page_link("pages/tela_envio.py", icon=":material/send:", label="Enviar E-mail")
 
     return 

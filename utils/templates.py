@@ -2,7 +2,7 @@ import streamlit as st
 import toml
 import re
 import time 
-from components import menu_lateral
+from pages import menu_lateral
 from email_service import enviar_email
 
 def create_email():
@@ -67,25 +67,32 @@ def create_email():
                     st.write('Nenhum contato encontrado para essa Lista.')
 
     st.divider()
-    # Botão para enviar o e-mail
+# Botão para enviar o e-mail
     if st.button(':blue[SEND-EMAIL :material/send:]', use_container_width=True):
 
         # Verificar se está tudo preenchido
         if not assunto_email or not saudacao or not corpo_email or not lista_selecionada:
             st.error('Preencha todos os campos antes de enviar o e-mail.')
-        elif re.search(r'{(?!Nome\b)[^}]+}', saudacao):
-            st.error(f'A saudação contém uma variável inválida: {re.search(r"{(?!Nome\b)[^}]+}", saudacao).group()}. Use apenas {{Nome}} para ser substituído pelo nome do contato. Exemplo de uso incorreto: {{nome}}, {{NOME}}, {{Prezados}}.')
         else:
-
-            st.toast('Enviando e-mail...', icon='📧')
-            
-            envio = enviar_email(assunto_email, saudacao, corpo_email, lista_selecionada, assinatura)
-            time.sleep(2)
-            
-            if envio:
-                st.toast('E-mail enviado com sucesso!', icon='📧')
+            match_variavel_invalida = re.search(r'{(?!Nome\b)[^}]+}', saudacao)
+            if match_variavel_invalida:
+                variavel_encontrada = match_variavel_invalida.group()
+                st.error(
+                    f'A saudação contém uma variável inválida: {variavel_encontrada}. '
+                    'Use apenas {{Nome}} para ser substituído pelo nome do contato. '
+                    'Exemplo de uso incorreto: {{nome}}, {{NOME}}, {{Prezados}}.'
+                )
             else:
-                st.toast(':red[Erro ao enviar e-mail]', icon=':material/priority_high:')
+                # Se não encontrou variável inválida, prossegue com o envio
+                st.toast('Enviando e-mail...', icon='📧')
+                
+                envio = enviar_email(assunto_email, saudacao, corpo_email, lista_selecionada, assinatura)
+                time.sleep(2)
+                
+                if envio:
+                    st.toast('E-mail enviado com sucesso!', icon='📧')
+                else:
+                    st.toast(':red[Erro ao enviar e-mail]', icon=':material/priority_high:')
 
 def informativo_atualizacao():
     left_column1, separador, right_column1 = st.columns([1, 0.1, 1])
