@@ -5,4 +5,5 @@ old_*
 venv/
 log.txt
 __pycache__/
-log_errors.txt
+log_erros.txt
+log_auditoria.txt

@@ -2,6 +2,7 @@ import smtplib
 import os
 import re
 import toml
+import streamlit as st
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from dotenv import load_dotenv
@@ -16,7 +17,7 @@ def enviar_email(assunto, saudacao, corpo, lista_contatos, assinatura):
         horario = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
 
         # Salvar o erro sem sobrescrever o arquivo e logs anteriores
-        with open("log_errors.txt", "a") as file:
+        with open("log_erros.txt", "a") as file:
             file.write(f"{horario} - Erro ao enviar e-mail: Credenciais não encontradas\n")
 
         return False
@@ -59,6 +60,7 @@ def enviar_email(assunto, saudacao, corpo, lista_contatos, assinatura):
                     msg.attach(MIMEText(f"{saudacao.format(Nome=contato['Nome'])}<br><br>{corpo_html}<br><br>{assinatura_email}", 'html'))
         
                     server.sendmail(email, contato["Email"], msg.as_string())
+        
 
     except Exception as e:
         print(f"Erro ao enviar email: {e}")
@@ -66,11 +68,17 @@ def enviar_email(assunto, saudacao, corpo, lista_contatos, assinatura):
         horario = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
 
         # Salvar o erro sem sobrescrever o arquivo e logs anteriores
-        with open("log_errors.txt", "a") as file:
+        with open("log_erros.txt", "a") as file:
             file.write(f"{horario} - Erro ao enviar e-mail: {e}\n")
 
         return False
     finally:
+        horario = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+        with open("log_auditoria.txt", "a") as file:
+            file.write(f"{horario} - E-mail enviado por {st.session_state['email_usuario']}\n")
+
+        print(f"E-mail enviado por {st.session_state['email_usuario']}")
+
         server.quit()
 
     return True

@@ -2,10 +2,15 @@
 #    se existe uma indicação de que ele está autenticado.
 from email_validator import validate_email, EmailNotValidError
 import streamlit as st
+import os
+from dotenv import load_dotenv
 
 # Define o domínio permitido para login
-DOMINIO_PERMITIDO = "tivic.com.br"
-SENHA_ACESSO = "huZ!NcyE8cMdQD3"
+load_dotenv()
+DOMINIO_PERMITIDO = os.getenv("dominio_permitido")  # Padrão para tivic.com.br se não estiver definido
+SENHA_ACESSO = os.getenv("login_password") # Senha temporária
+
+
 
 
 # Configurações geral das páginas

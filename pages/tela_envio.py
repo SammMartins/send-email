@@ -1,10 +1,14 @@
 import streamlit as st
 from utils import create_email, informativo_atualizacao, informativo_indisponibilidade, notificacao
-from pages import menu_lateral, tela_de_login
+from pages import menu_lateral
+from pages.login_state import tela_de_login
 from email_service import enviar_email
 
-
-if st.session_state["autenticado"] == True:
+if st.session_state["autenticado"] == False:
+    st.warning("Você precisa estar autenticado para acessar esta página.")
+    tela_de_login()
+    st.stop()
+else:
     menu_lateral()
 
 st.title(':blue[SEND-EMAIL :material/send:]', anchor = False)
